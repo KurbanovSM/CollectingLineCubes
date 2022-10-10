@@ -22,9 +22,10 @@
     "IsMove": false,
     "IsWasOnSmallCell": false,
     "SquareColor": 0,
-    "Vector2Map": {
+    "Vector3Map": {
       "x": 0.0,
       "y": 0.0,
+      "z": 0.0,
       "magnitude": 0.0,
       "sqrMagnitude": 0.0
     }
@@ -34,9 +35,10 @@
     "IsMove": false,
     "IsWasOnSmallCell": false,
     "SquareColor": 0,
-    "Vector2Map": {
+    "Vector3Map": {
       "x": 0.0,
       "y": 0.0,
+      "z": 0.0,
       "magnitude": 0.0,
       "sqrMagnitude": 0.0
     }

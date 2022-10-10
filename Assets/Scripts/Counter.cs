@@ -34,7 +34,12 @@ public class Counter : MonoBehaviour
         }
     }
 
-    private void UpdateUI() => counterText.text = $"{counter}/{maxCounter}";
-
-    private void ClearCount() => counter = 0;
+    private void UpdateUI()
+    {
+        counterText.text = $"{counter}/{maxCounter}";
+    }
+    private void ClearCount()
+    {
+        counter = 0;
+    }
 }

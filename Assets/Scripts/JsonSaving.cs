@@ -106,7 +106,7 @@ public class SquareSaving
     public bool IsMove = false;
     public bool IsWasOnSmallCell = false;
     public SquareColor SquareColor = SquareColor.Empty;
-    public Vector2 Vector2Map = Vector2.zero;
+    public Vector3 Vector3Map = Vector3.zero;
 
     public SquareSaving() { }
 
@@ -114,7 +114,7 @@ public class SquareSaving
     {
         IsMove = square.isMove;
         IsWasOnSmallCell = square.isWasOnSmallCell;
-        Vector2Map = square.RectTransformSquare.localPosition;
+        Vector3Map = square.vector3Map;
         SquareColor = square.squareColor;
     }
 }

@@ -10,7 +10,7 @@ public class Square : MonoBehaviour
     public bool isWasOnSmallCell { get; private set; } = false;
     public RectTransform RectTransformSquare { get; private set; }
     public SquareColor squareColor { get; private set; }
-    public Vector2 vector2Map { get; private set; }
+    public Vector3 vector3Map { get; private set; }
 
     private Vector3 oldPosition;
     private CanvasGroup canvasGroup;
@@ -50,6 +50,7 @@ public class Square : MonoBehaviour
         else
         {
             StartCoroutine(SmoothDamPositionCorutine(newVector));
+            AddVector3Map(newVector);
         }
     }
 
@@ -101,5 +102,10 @@ public class Square : MonoBehaviour
         isWasOnSmallCell = squareSavings.IsWasOnSmallCell;
 
         SetOldPosition(RectTransformSquare);
+    }
+
+    public void AddVector3Map(Vector3 newVector)
+    {
+        vector3Map = newVector;
     }
 }

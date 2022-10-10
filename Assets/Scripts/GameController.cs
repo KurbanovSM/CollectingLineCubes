@@ -84,6 +84,7 @@ public class GameController : MonoBehaviour
     {
         Square newSquare = Instantiate(squarePrefab, squarePrefabTransform.position, Quaternion.identity, squarePrefabParent);
         newSquare.SetColor(SetSquareColor());
+        newSquare.AddVector3Map(squarePrefabTransform.position);
         squares.Add(newSquare);
         AddNewSquare(newSquare);
     }
@@ -91,7 +92,7 @@ public class GameController : MonoBehaviour
     public Square InstantiateSquareLoad(SquareSaving loadSquare)
     {
         Square newSquare = Instantiate(squarePrefab, Vector3.zero, Quaternion.identity, squarePrefabParent);
-        newSquare.RectTransformSquare.localPosition = loadSquare.Vector2Map;
+        newSquare.RectTransformSquare.position = loadSquare.Vector3Map;
         newSquare.SetColor(loadSquare.SquareColor);
         newSquare.AddSaving(loadSquare);
         squares.Add(newSquare);
