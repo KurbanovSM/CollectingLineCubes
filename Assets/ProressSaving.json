@@ -1,0 +1,44 @@
+{
+  "isSave": false,
+  "SquaresSavings": [
+    [
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null
+    ]
+  ],
+  "NewSquare": {
+    "isSave": false,
+    "IsMove": false,
+    "IsWasOnSmallCell": false,
+    "SquareColor": 0,
+    "Vector2Map": {
+      "x": 0.0,
+      "y": 0.0,
+      "magnitude": 0.0,
+      "sqrMagnitude": 0.0
+    }
+  },
+  "SmallSquare": {
+    "isSave": false,
+    "IsMove": false,
+    "IsWasOnSmallCell": false,
+    "SquareColor": 0,
+    "Vector2Map": {
+      "x": 0.0,
+      "y": 0.0,
+      "magnitude": 0.0,
+      "sqrMagnitude": 0.0
+    }
+  }
+}
