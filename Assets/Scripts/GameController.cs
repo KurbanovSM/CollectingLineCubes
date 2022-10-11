@@ -95,6 +95,7 @@ public class GameController : MonoBehaviour
         newSquare.RectTransformSquare.position = loadSquare.Vector3Map;
         newSquare.SetColor(loadSquare.SquareColor);
         newSquare.AddSaving(loadSquare);
+        newSquare.AddVector3Map(loadSquare.Vector3Map);
         squares.Add(newSquare);
 
         return newSquare;

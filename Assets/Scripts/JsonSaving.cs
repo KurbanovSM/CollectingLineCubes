@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
 using System.IO;
@@ -11,10 +9,10 @@ public class JsonSaving : MonoBehaviour
     private void Awake()
     {
         CheckPlatfom();
-        if(PlayerPrefs.GetInt("OnePlay", 0) == 0)
+        if(PlayerPrefs.GetInt("FirstLaunch", 0) == 0)
         {
             Clear();
-            PlayerPrefs.SetInt("OnePlay", 1);
+            PlayerPrefs.SetInt("FirstLaunch", 1);
         }
     }
 
@@ -22,20 +20,10 @@ public class JsonSaving : MonoBehaviour
     {
         int size = GameController.Instance.sizeMap;
 
-        SquaresSaving squaresSaving = new SquaresSaving();
+        SquaresSaving squaresSaving = new SquaresSaving(true);
 
-        squaresSaving.isSave = true;
-
-        if (newSquare != null)
-        {
-            squaresSaving.NewSquare = new SquareSaving(newSquare);
-            squaresSaving.NewSquare.isSave = true;
-        }
-        if (smallSquare != null)
-        {
-            squaresSaving.SmallSquare = new SquareSaving(smallSquare);
-            squaresSaving.SmallSquare.isSave = true;
-        }
+        if (newSquare != null) squaresSaving.NewSquare = new SquareSaving(newSquare);
+        if (smallSquare != null) squaresSaving.SmallSquare = new SquareSaving(smallSquare);
 
         squaresSaving.SquaresSavings = ConversionToSave(map, size);
 
@@ -97,6 +85,11 @@ public class SquaresSaving
     public SquareSaving[,] SquaresSavings = new SquareSaving[GameController.Instance.sizeMap, GameController.Instance.sizeMap];
     public SquareSaving NewSquare = new SquareSaving();
     public SquareSaving SmallSquare = new SquareSaving();
+
+    public SquaresSaving(bool isSave = false)
+    {
+        this.isSave = isSave;
+    }
 }
 
 [System.Serializable]
@@ -116,5 +109,7 @@ public class SquareSaving
         IsWasOnSmallCell = square.isWasOnSmallCell;
         Vector3Map = square.vector3Map;
         SquareColor = square.squareColor;
+
+        isSave = true;
     }
 }

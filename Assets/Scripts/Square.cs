@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,14 +11,12 @@ public class Square : MonoBehaviour
     public SquareColor squareColor { get; private set; }
     public Vector3 vector3Map { get; private set; }
 
-    private Vector3 oldPosition;
     private CanvasGroup canvasGroup;
 
     private void Awake()
     {
         RectTransformSquare = transform as RectTransform;
         canvasGroup = GetComponent<CanvasGroup>();
-        SetOldPosition(RectTransformSquare);
     }
     public void SetColor(SquareColor squareColor)
     {
@@ -45,7 +42,7 @@ public class Square : MonoBehaviour
     {
         if(newVector == Vector3.zero)
         {
-            StartCoroutine(SmoothDamPositionCorutine(oldPosition));
+            StartCoroutine(SmoothDamPositionCorutine(vector3Map));
         }
         else
         {
@@ -54,7 +51,10 @@ public class Square : MonoBehaviour
         }
     }
 
-    public void SetCanvasGroup(bool enabled) => canvasGroup.blocksRaycasts = enabled;
+    public void SetCanvasGroup(bool enabled)
+    {
+        canvasGroup.blocksRaycasts = enabled;
+    }
 
     public void SetPotitionAndLocalPositionOffset(Vector3 newVector, Vector3 offset)
     {
@@ -62,8 +62,10 @@ public class Square : MonoBehaviour
         RectTransformSquare.localPosition += offset;
     }
 
-    public void SetOldPosition(RectTransform rectTransform) => oldPosition = rectTransform.position;
-    public void DisableMove() => isMove = false;
+    public void DisableMove()
+    {
+        isMove = false;
+    }
 
     private IEnumerator SmoothDamPositionCorutine(Vector3 newVector)
     {
@@ -72,11 +74,12 @@ public class Square : MonoBehaviour
             RectTransformSquare.position = Vector3.MoveTowards(RectTransformSquare.position, newVector, .2f);
             yield return null;
         }
-
-        SetOldPosition(RectTransformSquare);
     }
 
-    public void EnableWasOnSmallCell(bool enable) => isWasOnSmallCell = enable;
+    public void EnableWasOnSmallCell(bool enable)
+    {
+        isWasOnSmallCell = enable;
+    }
 
     public void DestroySquare()
     {
@@ -100,8 +103,6 @@ public class Square : MonoBehaviour
     {
         isMove = squareSavings.IsMove;
         isWasOnSmallCell = squareSavings.IsWasOnSmallCell;
-
-        SetOldPosition(RectTransformSquare);
     }
 
     public void AddVector3Map(Vector3 newVector)

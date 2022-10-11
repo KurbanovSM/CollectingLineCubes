@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 [RequireComponent(typeof(CanvasGroup))]
 public class Panel : MonoBehaviour
@@ -13,9 +11,15 @@ public class Panel : MonoBehaviour
         canvasGroup = GetComponent<CanvasGroup>();
     }
 
-    public void EnabledPanel() => StartCoroutine(Show(false));
+    public void EnabledPanel()
+    {
+        StartCoroutine(Show(false));
+    }
 
-    public void DisabledPanel() => StartCoroutine(Show(true));
+    public void DisabledPanel()
+    {
+        StartCoroutine(Show(true));
+    }
 
     private IEnumerator Show(bool isEnagled)
     {

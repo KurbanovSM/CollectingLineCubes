@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.Events;
 
 public class SmallCell : Cell
@@ -12,5 +9,8 @@ public class SmallCell : Cell
         EnableTakeCoordinates.AddListener(EnableTakeCoordinatesMethod);
     }
 
-    private void EnableTakeCoordinatesMethod() => EnableTakeCoordinates(true);
+    private void EnableTakeCoordinatesMethod()
+    {
+        EnableTakeCoordinates(true);
+    }
 }

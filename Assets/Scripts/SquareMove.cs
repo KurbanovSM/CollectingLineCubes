@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -43,16 +39,18 @@ public class SquareMove : MonoBehaviour, IDragHandler, IPointerDownHandler, IDro
 
         if (eventData.pointerCurrentRaycast.gameObject.TryGetComponent(out SmallCell smallCell) && smallCell.IsTakeCoordinates)
         {
+            ClickSound.Click.Invoke();
             smallCell.EnableTakeCoordinates(false);
             RectTransform smallCellRectTransform = smallCell.gameObject.transform as RectTransform;
             square.SmoothDampSetPosition(smallCellRectTransform.position);
-            square.SetOldPosition(smallCellRectTransform);
+            square.AddVector3Map(smallCellRectTransform.position);
             square.EnableWasOnSmallCell(true);
             GameController.Instance.InstantiateSquare();
             GameController.Instance.AddSmallSquare(square);
         }
         else if(eventData.pointerCurrentRaycast.gameObject.TryGetComponent(out Cell cell) && cell.IsTakeCoordinates)
         {
+            ClickSound.Click.Invoke();
             RectTransform cellRectTransform = cell.gameObject.transform as RectTransform;
             square.SmoothDampSetPosition(cellRectTransform.position);
             square.DisableMove();
@@ -71,7 +69,6 @@ public class SquareMove : MonoBehaviour, IDragHandler, IPointerDownHandler, IDro
 
             GameController.Instance.SetMap(square, cell.transform.GetSiblingIndex());
             GameController.Instance.CutLines();
-
         }
         else
         {
@@ -79,8 +76,6 @@ public class SquareMove : MonoBehaviour, IDragHandler, IPointerDownHandler, IDro
         }
 
         DestroySquare();
-
-        ClickSound.Click.Invoke();
     }
 
     private void DestroySquare()

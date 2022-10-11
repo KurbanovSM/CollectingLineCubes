@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,13 +12,13 @@ public class ChangeSoundVolume : MonoBehaviour
     }
 
     [SerializeField] private TMP_Text soundVolumeText;
-    [SerializeField] private Slider soundSlider;
+    [SerializeField] private Slider soundlider;
 
     [SerializeField] private List<AudioSource> audioSources;
 
     private void Awake()
     {
-        soundSlider.value = SoundVolume;
+        soundlider.value = SoundVolume;
         audioSources[0].volume = SoundVolume;
         audioSources[1].volume = SoundVolume;
 
@@ -28,7 +27,7 @@ public class ChangeSoundVolume : MonoBehaviour
 
     public void Change()
     {
-        SoundVolume = soundSlider.value;
+        SoundVolume = soundlider.value;
         audioSources[0].volume = SoundVolume;
         audioSources[1].volume = SoundVolume;
         UpdateSoundVolumeText();
