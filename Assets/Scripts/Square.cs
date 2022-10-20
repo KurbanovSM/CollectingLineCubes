@@ -13,6 +13,8 @@ public class Square : MonoBehaviour
 
     private CanvasGroup canvasGroup;
 
+    [SerializeField] private float speedMove;
+
     private void Awake()
     {
         RectTransformSquare = transform as RectTransform;
@@ -71,7 +73,7 @@ public class Square : MonoBehaviour
     {
         while (RectTransformSquare.position != newVector)
         {
-            RectTransformSquare.position = Vector3.MoveTowards(RectTransformSquare.position, newVector, .2f);
+            RectTransformSquare.position = Vector3.MoveTowards(RectTransformSquare.position, newVector, speedMove * Time.deltaTime);
             yield return null;
         }
     }
@@ -92,7 +94,7 @@ public class Square : MonoBehaviour
         while (RectTransformSquare.localScale != Vector3.zero)
         {
             RectTransformSquare.rotation *= Quaternion.Euler(0,0,10);
-            RectTransformSquare.localScale = Vector3.MoveTowards(RectTransformSquare.localScale, Vector3.zero, .1f);
+            RectTransformSquare.localScale = Vector3.MoveTowards(RectTransformSquare.localScale, Vector3.zero, speedMove * Time.deltaTime);
             yield return null;
         }
 
