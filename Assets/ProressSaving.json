@@ -7,37 +7,37 @@
       null
     ],
     [
+      null,
+      null,
+      null
+    ],
+    [
+      null,
       {
         "isSave": true,
         "IsMove": false,
         "IsWasOnSmallCell": false,
         "SquareColor": 1,
         "Vector3Map": {
-          "x": -1.10675669,
-          "y": 0.304054052,
+          "x": 0.0,
+          "y": -0.802702665,
           "z": 90.0,
           "normalized": {
-            "x": -0.0122962967,
-            "y": 0.00337810372,
-            "z": 0.9999187,
+            "x": 0.0,
+            "y": -0.008918564,
+            "z": 0.999960244,
             "magnitude": 1.0,
             "sqrMagnitude": 1.0
           },
-          "magnitude": 90.00732,
-          "sqrMagnitude": 8101.31738
+          "magnitude": 90.00358,
+          "sqrMagnitude": 8100.64453
         }
       },
-      null,
-      null
-    ],
-    [
-      null,
-      null,
       {
         "isSave": true,
         "IsMove": false,
         "IsWasOnSmallCell": false,
-        "SquareColor": 3,
+        "SquareColor": 2,
         "Vector3Map": {
           "x": 1.10675669,
           "y": -0.802702665,
@@ -76,30 +76,16 @@
     }
   },
   "SmallSquare": {
-    "isSave": true,
-    "IsMove": true,
-    "IsWasOnSmallCell": true,
-    "SquareColor": 3,
+    "isSave": false,
+    "IsMove": false,
+    "IsWasOnSmallCell": false,
+    "SquareColor": 0,
     "Vector3Map": {
-      "x": 0.6993243,
-      "y": -2.47635126,
-      "z": 90.0,
-      "normalized": {
-        "x": 0.0077670957,
-        "y": -0.0275037736,
-        "z": 0.99959147,
-        "normalized": {
-          "x": 0.007767096,
-          "y": -0.0275037754,
-          "z": 0.9995915,
-          "magnitude": 1.0,
-          "sqrMagnitude": 1.0
-        },
-        "magnitude": 0.99999994,
-        "sqrMagnitude": 0.9999999
-      },
-      "magnitude": 90.03678,
-      "sqrMagnitude": 8106.62158
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "magnitude": 0.0,
+      "sqrMagnitude": 0.0
     }
   }
 }
